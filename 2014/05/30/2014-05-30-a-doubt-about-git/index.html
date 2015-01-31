@@ -3,17 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | Mrshyi</title>
+  <title>A doubt about git | Mrshyi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mrshyi">
-<meta property="og:url" content="http://mrshyi.com/archives/2015/">
+  <meta name="description" content="bug 分支     -bug修复
+master 分支  -稳定版
+dev 分支     -开发版">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A doubt about git">
+<meta property="og:url" content="http://mrshyi.com/2014/05/30/2014-05-30-a-doubt-about-git/">
 <meta property="og:site_name" content="Mrshyi">
-<meta property="og:description">
+<meta property="og:description" content="bug 分支     -bug修复
+master 分支  -稳定版
+dev 分支     -开发版">
+<meta property="og:image" content="/images/img/git_sourceTree">
+<meta property="og:image" content="/images/img/git_log_graph">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mrshyi">
-<meta name="twitter:description">
+<meta name="twitter:title" content="A doubt about git">
+<meta name="twitter:description" content="bug 分支     -bug修复
+master 分支  -稳定版
+dev 分支     -开发版">
 
   
     <link rel="alternative" href="/atom.xml" title="Mrshyi" type="application/atom+xml">
@@ -189,44 +197,123 @@
 		</header>				
 	</div>
 </nav>
-      
+      <article id="post-2014-05-30-a-doubt-about-git" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/01/31/hello-world/" class="archive-article-date">
-  	<time datetime="2015-01-31T05:01:01.000Z" itemprop="datePublished">Jan 31</time>
+    <div class="article-meta">
+      <a href="/2014/05/30/2014-05-30-a-doubt-about-git/" class="article-date">
+  	<time datetime="2014-05-30T07:33:32.000Z" itemprop="datePublished">May 30 2014</time>
 </a>
-	      	<br>
-	      	
-	    	
-    	</div>
-    	
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Git/">Git</a>
+  </div>
+
+      
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/31/hello-world/">Hello World</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      A doubt about git
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code><span class="title">bug</span> 分支     -bug修复
+master 分支  -稳定版
+dev 分支     -开发版
+</code></pre><a id="more"></a> 
+<p> 当 出现bug时，</p>
+<pre><code> <span class="number">1</span>.挂起 git stash dev 分支
+
+ <span class="number">2</span>.从master分支上 分出 bug 分支
+
+<span class="number">3</span>.修复bug，合并到 master 分支
+
+ <span class="number">4</span>.恢复 dev 分支，git stash <span class="keyword">pop</span>
+
+ <span class="number">5</span>.把dev 合并到 master
+</code></pre><p> Q: dev 与 master 合并 merge 会因 bug分支出问题吗？</p>
+<p> 验证：<br><img src="/images/img/git_sourceTree" alt=" 图1"></p>
+<p><img src="/images/img/git_log_graph" alt=" 图2"></p>
+<p> 结论：</p>
+<p> 若没有conflick，则不会出问题，正如两条普通分支meger 一样</p>
+
+      
+    </div>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/01/31/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/05/22/2014-05-22-ios-she-ji-mo-shi-dan-li/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS 设计模式-单例</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2014-05-30-a-doubt-about-git" data-title="A doubt about git" data-url="http://mrshyi.com/2014/05/30/2014-05-30-a-doubt-about-git/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"mrshyi"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
       <footer id="footer">
   <div class="outer">

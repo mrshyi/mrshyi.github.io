@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>用Octopress+Github搭建Blog(1) | Mrshyi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.搭建 Ruby 环境( Octopress 基于 Ruby环境 )，通过RVM 或者 Renvb （二者优缺点 各有所爱）。
+   a.安装RVM：
+ bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Octopress+Github搭建Blog(1)">
+<meta property="og:url" content="http://mrshyi.com/2014/03/31/2014-03-31-yong-octopress-plus-githubda-jian-blog-1/">
+<meta property="og:site_name" content="Mrshyi">
+<meta property="og:description" content="1.搭建 Ruby 环境( Octopress 基于 Ruby环境 )，通过RVM 或者 Renvb （二者优缺点 各有所爱）。
+   a.安装RVM：
+ bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用Octopress+Github搭建Blog(1)">
+<meta name="twitter:description" content="1.搭建 Ruby 环境( Octopress 基于 Ruby环境 )，通过RVM 或者 Renvb （二者优缺点 各有所爱）。
+   a.安装RVM：
+ bash -s stable &lt; &lt;(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)">
+
+  
+    <link rel="alternative" href="/atom.xml" title="Mrshyi" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<div class="profilepic">
+			<img src="https://avatars1.githubusercontent.com/u/5423305?v=3&amp;s=140">
+		</div>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">mrshyi</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">自信源于努力！</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/mrshyi" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/mrshyi" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay"></div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="https://avatars1.githubusercontent.com/u/5423305?v=3&amp;s=140">
+			</div>
+
+			<hgroup>
+			  <h1 class="header-author"><a href="/">mrshyi</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">自信源于努力！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/mrshyi" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/mrshyi" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <article id="post-2014-03-31-yong-octopress-plus-githubda-jian-blog-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/03/31/2014-03-31-yong-octopress-plus-githubda-jian-blog-1/" class="article-date">
+  	<time datetime="2014-03-31T14:36:47.000Z" itemprop="datePublished">Mar 31 2014</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Octopress/">Octopress</a>
+  </div>
+
+      
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用Octopress+Github搭建Blog(1)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-搭建_Ruby_环境(_Octopress_基于_Ruby环境_)，通过RVM_或者_Renvb_（二者优缺点_各有所爱）。">1.搭建 Ruby 环境( Octopress 基于 Ruby环境 )，通过RVM 或者 Renvb （二者优缺点 各有所爱）。</h3>
+<p>   a.安装RVM：</p>
+<pre><code> bash -s stable &lt; &lt;(curl -s <span class="symbol">https:</span>/<span class="regexp">/raw.github.com/wayneeseguin</span><span class="regexp">/rvm/master</span><span class="regexp">/binscripts/rvm</span>-installer)
+</code></pre><a id="more"></a>     
+<p>  b.配置classpath</p>
+<pre><code>  echo '[[ -s <span class="string">"<span class="variable">$HOME</span>/.rvm/scripts/rvm"</span> ]] &amp;&amp; . <span class="string">"<span class="variable">$HOME</span>/.rvm/scripts/rvm"</span> <span class="comment"># Load RVM function' &gt;&gt; ~/.bash_profile </span>
+
+source ~/.bash_profile
+</code></pre><p>  c.安装 Ruby: (不明所以  不用  1.9.3 ？莫名其妙，用高版本也行，就是安装老出问题，囧)<br>    rvm install 1.9.3   </p>
+<pre><code>rvm <span class="keyword">use</span> <span class="number">1.9</span>.<span class="number">3</span>
+
+rvm rubygems latest
+</code></pre><p>   d.完成以上操作之后，运行验证， 看到 Ruby 1.9.3 则环境已经装好！<br>    ruby —version</p>
+<h3 id="2-安装_Octopress">2.安装 Octopress</h3>
+<p>   <strong>注意</strong>：安装之前，确认PC已经安装有git,在终端输入 git —version ，可以看到电脑中的git版本。若没有相关内容，先安装git。</p>
+<p>   a.通过 git 命令将 Octopress 从 github 上 clone 到本机，命令如下：</p>
+<pre><code> git clone gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/imathis/octopress.git octopress
+
+ <span class="keyword">cd</span> octopress
+</code></pre><p>   b.安装相关依赖项：（不太明白，有其他提示）</p>
+<pre><code>gem <span class="operator"><span class="keyword">install</span> bundler
+bundler <span class="keyword">install</span></span>
+</code></pre><p>   c.安装默认主题</p>
+<pre><code>rake <span class="operator"><span class="keyword">install</span>
+
+ps:安装Custom Theme：
+① git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade
+ [可选：配套greyshade Theme]
+    echo <span class="string">"\$greyshade: color;"</span> &gt;&gt; sass/custom/_colors.scss     //Substitue <span class="string">'color'</span> <span class="keyword">with</span> your highlight color
+② rake <span class="keyword">install</span>[<span class="string">'greyshade’]</span></span>
+</code></pre><p> d.配置 Octopress</p>
+<p>   多数情况下，只需配置 _config.yml 和 Rakefile 文件即可。其中 Rakefile文件 跟Blog 部署有关，通常不需要修改，除非使用了 rsync。</p>
+<p>   _config.yml 是Blog 重要的一个配置文件：有三大配置项：Main Config、 Jekyll &amp; Plugins 和 3rd Party Settings。</p>
+<p>   <strong>建议</strong>：删除 twitter 相关，否则，墙的原因，造成页面load 很慢。同理，修改 /source/_includes/custom/head.html 把google 的自定义字体去掉。</p>
+<h3 id="3-将_Blog_部署到GitHub上">3.将 Blog 部署到GitHub上</h3>
+<p>   Github 的 Page sevice  可以免费托管博客，并且可以自定义域名。</p>
+<p>a.在Github 上 创建一个仓库，并将仓库名称按照这样的方式命名：username.github.com 或者 organization.github.com.（配置完成之后，<a href="http://username.github.com" target="_blank" rel="external">http://username.github.com</a> 访问博客。博客源码 放到source分支，生成的内容提交到master 分支）</p>
+<p>b.利用 Octopress 的 配置Rake 任务 自动配置上面创建的仓库，部署Github page：</p>
+<pre><code>rake setup_github_pages
+(创建了一个<span class="variable">_</span>deploy 目录，存放部署到master分支的内容)
+根据提示输入仓库的url
+…………….
+</code></pre><p> C.生成Blog 并 部署到仓库中：</p>
+<pre><code><span class="title">rake</span> generate // 可选
+rake preview // 预览 ，可选 (浏览器 本地查看 <span class="url">http://127.0.0.1:4000</span> 或者<span class="url">http://localhost:4000)</span>
+rake deploy    
+</code></pre><p>   ps:上面的命令首先生成博客文件，并把生成的博客文件拷贝到_deploy/ 目录下，然后将这些内容添加到git 中，并将commit 和 push 到仓库的master分支。</p>
+<p>  d.博客的source 需要单独提交，执行如下命令将source 提交到仓库的source分支下：</p>
+<pre><code>git <span class="built_in">add</span> .
+git commit -<span class="keyword">m</span> ‘Initial <span class="keyword">source</span> commit’
+git push origin <span class="keyword">source</span>
+</code></pre><h3 id="4-写博客">4.写博客</h3>
+<p>  博文必须存储在 source/_posts 目录下，并按照Jekyll 命名规范对文章命名：YYYY-MM-DD-post-title.markdown。文章的名字会被当成url的一部分，而其中的日期用于对博文的区分和排序。</p>
+<p>   创建博文：</p>
+<pre><code><span class="tag">rake</span> <span class="tag">new_post</span><span class="attr_selector">[“title”]</span>
+</code></pre><p>   其中 title 为博文的文件名，默认markdown格式。命令生成这样的文件：source/_posts/2014-03-02-title.markdown.</p>
+<p>   打开后，看到：(告诉Jekyll 博客引擎 如何处理博文和页面)</p>
+<pre><code>—-------
+layout: post
+title: ”title”
+date: 2014-03-02 16:35
+comments: ture
+<span class="header">categories:
+------</span>
+</code></pre><p>   我们在其中写我们的博客。完成后 预览和部署。</p>
+<p> 写博客 到 发布 的完整流程：</p>
+<pre><code>  ① rake new_post<span class="attr_selector">["title”]</span>    <span class="comment">// 创建</span>
+ ② rake generate             <span class="comment">// 生成</span>
+ ③ rake preview              <span class="comment">//本地预览（可选）</span>
+ ④ git add .                 <span class="comment">// 上传源文件（可选）</span>
+      git commit -am “commet “    
+      git push origin source
+ ⑤ rake deploy              <span class="comment">// 部署 即 发布</span>
+</code></pre><h2 id="—-">—-</h2>
+<h3 id="待解决完善问题：">待解决完善问题：</h3>
+<p>1.个性化配置：博客名、头像、主题、添加评论、域名解析、分享等。</p>
+<p>2.不能直接使用 Rake xxx，必须使用 在之前加上  bundle exec </p>
+<p>3 对于文中所用的各种命令，一窍不通，只是比照着前辈大神们的教程。努力知其然，知其所以然。</p>
+<p>4.关于Markdown 语法格式的学习：</p>
+<pre><code>① <span class="comment">--- 三个小短线 生成 如下的这种分界线；</span>
+② 使用 <span class="comment"># 来定义标题，按个数 从1到6 分别代表 一级标题 至 六级标题；</span>
+③ 行的开头空<span class="number">4</span>个空格，表示程序代码，如这些背景色比较重的地方。（Tab 这个看个人设置吧）
+</code></pre><p>温故而知新：</p>
+<pre><code>   单个回车   视为空格。
+<span class="input"><span class="prompt">
+   连续回车     才能分段。
+
+   行尾加两个空格，这里-&gt;</span>  即可段内换行。</span>
+</code></pre><p>分享一个 Markdown 的 <a href="http://www.ituring.com.cn/article/23" target="_blank" rel="external">快速入门</a></p>
+<hr>
+<p>本文是本人搭建 这个博客，实践过程与总结记录。</p>
+<h3 id="主要参考">主要参考</h3>
+<p><a href="http://octopress.org/docs/" target="_blank" rel="external">Octopress Documentation</a></p>
+<p><a href="http://beyondvincent.com/" target="_blank" rel="external">@破船之家</a> 的 <a href="http://beyondvincent.com/blog/2013/08/03/108-creating-a-github-blog-using-octopress/" target="_blank" rel="external">利用Octopress搭建一个Github博客</a></p>
+<p><a href="http://blog.devtang.com/" target="_blank" rel="external">@唐巧的技术博客</a>的<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/" target="_blank" rel="external">象写程序一样写博客：搭建基于github的博客</a></p>
+<p><a href="http://812lcl.com/" target="_blank" rel="external">812lcl</a> 的 <a href="http://812lcl.com/blog/2013/10/25/octopressbo-ke-da-jian-ji-mu-lu-jie-gou/" target="_blank" rel="external">Octopress博客搭建及目录结构</a></p>
+
+      
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/04/16/2014-04-16-chu-shi-html/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          初识HTML
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/03/30/2014-03-30-za-tan-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">杂谈1</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2014-03-31-yong-octopress-plus-githubda-jian-blog-1" data-title="用Octopress+Github搭建Blog(1)" data-url="http://mrshyi.com/2014/03/31/2014-03-31-yong-octopress-plus-githubda-jian-blog-1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"mrshyi"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 mrshyi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+  <script src="/js/main.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>
