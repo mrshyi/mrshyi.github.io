@@ -5,15 +5,33 @@
   
   <title>iOS 设计模式-单例 | Mrshyi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="iOS 单例=
+
+什么是单例
+单例的应用场景
+如何实现与使用
+单例工厂
+统一管理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 设计模式-单例">
 <meta property="og:url" content="http://mrshyi.com/2014/05/22/2014-05-22-ios-she-ji-mo-shi-dan-li/">
 <meta property="og:site_name" content="Mrshyi">
-<meta property="og:description">
+<meta property="og:description" content="iOS 单例=
+
+什么是单例
+单例的应用场景
+如何实现与使用
+单例工厂
+统一管理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 设计模式-单例">
-<meta name="twitter:description">
+<meta name="twitter:description" content="iOS 单例=
+
+什么是单例
+单例的应用场景
+如何实现与使用
+单例工厂
+统一管理">
 
   
     <link rel="alternative" href="/atom.xml" title="Mrshyi" type="application/atom+xml">
@@ -216,7 +234,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p>iOS 单例<br>=</p>
+<ul>
+<li>什么是单例</li>
+<li>单例的应用场景</li>
+<li>如何实现与使用</li>
+<li>单例工厂</li>
+<li>统一管理</li>
+</ul>
+<a id="more"></a>
+<h2 id="1-什么是单例?">1.什么是单例?</h2>
+<p>　　 是一个类在系统中只有一个实例对象。通过全局的一个入口对这个实例对象进行访问。</p>
+<h2 id="2-应用场景？">2.应用场景？</h2>
+<p>　　用于只希望一个类只有一个实例，而不运行一个类还有两个以上的实例。</p>
+<p>　　  A:iOS SDK 应用到单例模式的类:</p>
+<p>　　  UIApplication 的 shareApplication 统一管理  </p>
+<p>　　 NSUserDefaults 的standardUserDefaults统一管理用户配置文件、  </p>
+<p>　　 NSFileManager的defaultManager统一负责物理文件的管理，  </p>
+<p>　　 NSNoficationCenter中defaultCenter负责全局的消息分发。  </p>
+<p>　　B:定制场景：主题管理、下载管理、传递Data；</p>
+<h2 id="3-如何实现与使用？">3.如何实现与使用？</h2>
+<p>ARC + GCD 实现</p>
+<p><strong>xx.h</strong></p>
+<pre><code><span class="addition">+ (ARCSingleton *)sharedInstance;</span>
+</code></pre><p><strong>xx.m</strong></p>
+<pre><code>+ (<span class="type">ARCSingleton</span> *) sharedInstance
+{
+    <span class="comment">// 1</span>
+    <span class="keyword">static</span>  <span class="type">ARCSingleton</span> *sharedInstance = <span class="built_in">nil</span> ;
+    <span class="comment">// 2</span>
+    <span class="keyword">static</span>  dispatch_once_t onceToken;  <span class="comment">// 锁</span>
+    <span class="comment">// 3</span>
+    dispatch_once (&amp;onceToken, ^ {     <span class="comment">// 最多调用一次</span>
+        sharedInstance = [[<span class="keyword">self</span>  alloc] <span class="keyword">init</span>];
+});
+    <span class="keyword">return</span>  sharedInstance;
+}
+
+<span class="comment">// 当第一次使用这个单例时，会调用这个init方法。</span>
+- (id)<span class="keyword">init</span>
+{
+    <span class="keyword">self</span> = [<span class="keyword">super</span> <span class="keyword">init</span>];
+
+    <span class="keyword">if</span> (<span class="keyword">self</span>) {
+        <span class="comment">// 通常在这里做一些相关的初始化任务</span>
+    }
+
+    <span class="keyword">return</span> <span class="keyword">self</span>;
+}
+</code></pre><p>•1.声明一个静态变量去保存类的实例，确保它在类中的全局可用性</p>
+<p>•2.声明一个静态变量 <strong>dispatch_once_t</strong> ,它确保初始化器代码只执行一次</p>
+<p>•3.使用 <strong>Grand Central Dispatch(GCD)</strong> 执行初始化的block.这正是单例模式的关键：一旦类已经被初始化，初始化器永远不会再被调用。</p>
+<h2 id="4-单例工厂">4.单例工厂</h2>
+<p>　　管理项目中大量的单例  </p>
+<p>　　工厂方法模式的实质是“定义一个创建对象的接口，但让实现这个接口的类来决定实例化哪个类。工厂方法让类的实例化推迟到子类中进行。”</p>
+<h2 id="5-模块管理系统">5.模块管理系统</h2>
+<p>　　 统一管理</p>
+<hr>
+<h2 id="参考">参考</h2>
+<p>1.[iOS设计模式反思之单例模式的进化] (<a href="http://blog.jobbole.com/56439/" target="_blank" rel="external">http://blog.jobbole.com/56439/</a>)</p>
+<p>2.[iOS设计模式(02):单例模式] (<a href="http://beyondvincent.com/blog/2013/05/09/20/" target="_blank" rel="external">http://beyondvincent.com/blog/2013/05/09/20/</a>)</p>
+
       
     </div>
   </div>
