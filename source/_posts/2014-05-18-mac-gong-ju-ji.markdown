@@ -3,7 +3,8 @@ layout: post
 title: "Mac 工具集"
 date: 2014-05-18 15:37:57 +0800
 comments: true
-categories: iOS逆向学习
+categories: iOS
+tags: iOS逆向学习
 ---
 目录
 	
@@ -13,7 +14,7 @@ categories: iOS逆向学习
 	4.IDA
 	5.Other
 <!--more-->
-###	1. class-dump
+### 1. class-dump
    class-dump,顾名思义,就是用来 dump 目标对象的 class 信息的工具。它利用 Objective-C语言的 runtime 特性,将存储在 Mach-O 文件中的 @interface 和 @protocol 信息提取出来,并 生成对应的 .h 文件。 
    
     

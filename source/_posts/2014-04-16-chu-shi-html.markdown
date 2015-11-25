@@ -3,13 +3,14 @@ layout: post
 title: "初识HTML"
 date: 2014-04-16 21:54:24 +0800
 comments: true
-categories: HTML
+categories: FE
+tags: html
 ---
 
-#写在前面
+## 写在前面
 说是初识，其实已经是老相识了。记得n年前，还在学校的时候，开了一门web **的课程 ，对这些tag有印象，可惜当时不知忙什么了荒废的特别彻底，真是书到用时方恨少。现在“重温”那些相识却不相识的HTML吧。Fighting！
 <!--more-->
-#什么是HTML
+## 什么是HTML
 HTML 是用来描述网页的一种语言。
 
 * HTML 指的是超文本标记语言（Hyper Text Markup Language）
@@ -19,7 +20,7 @@ HTML 是用来描述网页的一种语言。
 
 ---
 
-#HTML标签
+## HTML标签
 HTML 标记标签通常被称为 HTML 标签（HTML tag）.
 
 - HTML 标签是由尖括号包围的关键词，比如`<html>`
@@ -30,7 +31,7 @@ HTML 标记标签通常被称为 HTML 标签（HTML tag）.
 
 ---
 
-#HTML 文档 ＝ 网页
+## HTML 文档 ＝ 网页
 * HTML 文档描述网页
 * HTML 文档包含 HTML 标签和纯文本
 * HTML 文档也被称为网页
@@ -53,12 +54,12 @@ Web 浏览器的作用是读取HTML 文档，比以网页的形式显示出它�
 * 	`p`与`/p` 之间的文本被显示为段落
 
 
-#参考文档
+## 参考文档
 
 W3Scholl 的 [ HTML 简介](http://www.w3school.com.cn/html/html_intro.asp)
 
 ---
-#写在后面
+## 写在后面
 
 小小一个简介，没什么内容，但由于不熟悉 markdown语言 ，编辑的超慢，而且是看着 W3Scholl的学习文档。这样的效率一晚上没了。坑。改变策略，一次多学点。记录简单的、有不同意义的知识点。然后抽时间 阶段总结。
 ***

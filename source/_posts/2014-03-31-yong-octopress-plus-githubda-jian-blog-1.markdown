@@ -3,12 +3,13 @@ layout: post
 title: "用Octopress+Github搭建Blog(1)"
 date: 2014-03-31 22:36:47 +0800
 comments: true
-categories: Octopress
+categories: Tool
+tags: Octopress
 ---
 
 
 
-###1.搭建 Ruby 环境( Octopress 基于 Ruby环境 )，通过RVM 或者 Renvb （二者优缺点 各有所爱）。
+## 1.搭建 Ruby 环境( Octopress 基于 Ruby环境 )，通过RVM 或者 Renvb （二者优缺点 各有所爱）。
    
    a.安装RVM：
      
@@ -31,7 +32,7 @@ categories: Octopress
 
     
    
-###2.安装 Octopress
+## 2.安装 Octopress
    **注意**：安装之前，确认PC已经安装有git,在终端输入 git —version ，可以看到电脑中的git版本。若没有相关内容，先安装git。
    
    a.通过 git 命令将 Octopress 从 github 上 clone 到本机，命令如下：
@@ -62,7 +63,7 @@ categories: Octopress
     
    **建议**：删除 twitter 相关，否则，墙的原因，造成页面load 很慢。同理，修改 /source/_includes/custom/head.html 把google 的自定义字体去掉。
 
-###3.将 Blog 部署到GitHub上
+## 3.将 Blog 部署到GitHub上
    Github 的 Page sevice  可以免费托管博客，并且可以自定义域名。
   
 a.在Github 上 创建一个仓库，并将仓库名称按照这样的方式命名：username.github.com 或者 organization.github.com.（配置完成之后，http://username.github.com 访问博客。博客源码 放到source分支，生成的内容提交到master 分支）
@@ -88,7 +89,7 @@ b.利用 Octopress 的 配置Rake 任务 自动配置上面创建的仓库，部
     git commit -m ‘Initial source commit’
     git push origin source
 
-###4.写博客
+## 4.写博客
   博文必须存储在 source/_posts 目录下，并按照Jekyll 命名规范对文章命名：YYYY-MM-DD-post-title.markdown。文章的名字会被当成url的一部分，而其中的日期用于对博文的区分和排序。
   
    创建博文：
@@ -123,7 +124,7 @@ b.利用 Octopress 的 配置Rake 任务 自动配置上面创建的仓库，部
 
 ---
 ---
-###待解决完善问题：
+## 待解决完善问题：
 
 1.个性化配置：博客名、头像、主题、添加评论、域名解析、分享等。
 
@@ -150,7 +151,7 @@ b.利用 Octopress 的 配置Rake 任务 自动配置上面创建的仓库，部
 ---
 本文是本人搭建 这个博客，实践过程与总结记录。
 
-###主要参考
+## 主要参考
  
 [Octopress Documentation](http://octopress.org/docs/)
 

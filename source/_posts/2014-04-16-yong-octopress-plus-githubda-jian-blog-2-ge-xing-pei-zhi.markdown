@@ -3,7 +3,8 @@ layout: post
 title: "用Octopress+Github搭建Blog(2)- 个性配置"
 date: 2014-04-16 23:39:09 +0800
 comments: true
-categories: Octopress
+categories: Tool
+tags: Octopress
 ---
 ### 0.修改 `_config.yml`文件
 格式：`配置项：+ 空格 + 参数`，空格必选有，不能少。
