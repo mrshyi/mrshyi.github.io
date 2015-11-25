@@ -3,7 +3,8 @@ layout: post
 title: "A doubt about git"
 date: 2014-05-30 15:33:32 +0800
 comments: true
-categories: Git
+categories: Tool
+tags: Git
 ---
 
 
