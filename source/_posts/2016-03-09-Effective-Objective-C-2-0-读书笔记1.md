@@ -1,4 +1,4 @@
-title: 编写高质量iOS与OSX代码的52个有效方法-读书笔记1
+title: Effective Objective-C 2.0-读书笔记1
 date: 2016-03-09 22:49:21
 comments: true
 categories: [iOS]
