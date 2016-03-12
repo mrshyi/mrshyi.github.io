@@ -15,7 +15,8 @@ tags: [iOS,Objective-C,Effective]
 	* objc_msgSend_fpret 消息返回的时浮点数
 	* objc_msgSendSuper 要给超类发送消息
 * **尾调用优化** (tail-call optimization) 若函数最后一项操作是调用另外一个函数，运用此技术，编译器会生成调转至另一函数所需的指令码，而不会向调用堆栈中推入新的“栈帧”。只有当函数最后一项操作仅仅时调用其他函数而不会将其返回值另作他用时，才会执行“尾调用优化”。
-
+	
+<!--more-->
 ---
 **要点**
 

@@ -13,7 +13,8 @@ tags: [iOS,Objective-C,Effective]
  * - (NSUInteger)hash;
 *  相等判断：指针是否相等>是否是同一个类>属性是否相等
 
-
+	
+<!--more-->
 #### 特定类所具有的等同性判定方法
 * `NSString`的`isEqualToString:`
 * `NSArray`的`isEqualToArray:`
