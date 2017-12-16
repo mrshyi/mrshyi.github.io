@@ -9,21 +9,24 @@ description: 且行且珍惜...
 author: mrshyi
 email: mrshyi@hotmail.com
 language:
+timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://mrshyi.com
 root: /
 permalink: :category/:title/
-tag_dir: tags
-archive_dir: archives
-category_dir: categories
-code_dir: downloads/code
 permalink_defaults:
 
 # Directory
 source_dir: source
 public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
 
 # Writing
 new_post_name: :year-:month-:day-:title.md # File name of new posts
@@ -34,9 +37,11 @@ filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: false
+future: true
 highlight:
   enable: true
   line_number: true
+  auto_detect: false
   tab_replace:
 
 # Category & Tag
@@ -78,13 +83,13 @@ disqus_shortname:
 duoshuo: mrshyi
 
 # Extensions
-## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
-## Themes: https://github.com/hexojs/hexo/wiki/Themes
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
 theme: yilia
 exclude_generator:
 
 # Deployment
-## Docs: http://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
   repo: https://github.com/mrshyi/mrshyi.github.io.git
