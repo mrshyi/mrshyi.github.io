@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2014/5 | mrshyi</title>
+  <title>Tag: JavaScript | mrshyi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="且行且珍惜...">
 <meta property="og:type" content="website">
 <meta property="og:title" content="mrshyi">
-<meta property="og:url" content="http://mrshyi.com/archives/2014/05/index.html">
+<meta property="og:url" content="http://mrshyi.com/tags/JavaScript/index.html">
 <meta property="og:site_name" content="mrshyi">
 <meta property="og:description" content="且行且珍惜...">
 <meta name="twitter:card" content="summary">
@@ -214,196 +214,160 @@
 
       <div class="body-wrap">
   
+    <article id="post-JavaScript面向对象的程序设计之继承" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/FE/JavaScript面向对象的程序设计之继承/" class="article-date">
+  	<time datetime="2018-01-05T05:52:30.000Z" itemprop="datePublished">Jan 5 2018</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/FE/JavaScript面向对象的程序设计之继承/">JavaScript面向对象的程序设计之继承</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>只支持实现继承，主要依靠原型链实现。</p>
+<ol>
+<li><p>原型链<br>原型链的构建是通过将一个类型的实例赋值给另一个构造函数的原型实现的<br>基本思想：<br>利用原型让一个引用类型继承另一个引用类型的属性和方法<br>问题：<br>a.包含引用类型值的原型属性，在通过原型实现继承时，实例属性会被继承共享<br>b.在创建子类型的实例时，不能向超类型的构造函数中传递参数（不影响所有对象实例的情况下）</p>
+</li>
+<li><p>借用构造函数/伪造对象/<br>解决原型中包含引用类型值所带来的问题<br>基本思想：<br>在子类型构造函数的内部调用超类型构造函数<br>优势：在子类型构造函数中向超类型构造函数传递参数<br>问题：方法都在构造函数中定义，不能复用。超类型的原型中的方法，对子类型不可见。</p>
+</li>
+<li><p>组合继承/伪经典继承<br>JavaScript中最常用的继承模式<br>将原型链和借用构造函数的技术组合到一起<br>基本思想：<br>使用原型链实现对原型属性和方法的继承，通过借用构造函数来实现对实例属性的继承<br>优点：实现了函数复用，又能够保证每个实例都有自己的属性<br>缺点：无论什么情况下，都会调用两次超类型构造函数（创建子类型原型时和在子类型构造函数内部）</p>
+</li>
+<li><p>原型式继承<br>借助原型基于已有对象创建新对象，不必因此创建自定义类型<br>只是想让一个对象与另一个对象保持类似的情况下，原型式继承完全胜任<br>注意：包含引用类型值的属性始终都会共享相应的值</p>
+</li>
+<li><p>寄生式继承<br>基本思想：<br>创建一个仅用于封装继承过程的函数，在内部以某种方式来增强对象，最后再返回对象。<br>注意：使用寄生式继承来为对象添加函数，会由于不能做到函数复用而降低效率</p>
+</li>
+<li><p>寄生组合式继承<br>开发人员普遍认为寄生组合式继承是引用类型最理想的继承范式<br>通过借用构造函数来继承属性，通过原型链的混成形式来继承方法<br>基本思想：<br>使用寄生式继承来继承超类型的原型，再将结果指定给子类型的原型。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/FE/">FE</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Tool/a-doubt-about-git/" class="archive-article-date">
-  	<time datetime="2014-05-30T07:33:32.000Z" itemprop="datePublished">May 30</time>
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JavaScript面向对象的程序设计之创建对象" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/FE/JavaScript面向对象的程序设计之创建对象/" class="article-date">
+  	<time datetime="2018-01-05T05:42:46.000Z" itemprop="datePublished">Jan 5 2018</time>
 </a>
-        </div>
-    	 
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/Tool/a-doubt-about-git/">A doubt about git</a>
+      <a class="article-title" href="/FE/JavaScript面向对象的程序设计之创建对象/">JavaScript面向对象的程序设计之创建对象</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>Object构造函数或对象字面量<br>缺点：使用一个接口创建很多对象，会产生大量重复代码</p>
+</li>
+<li><p>工厂模式<br>抽象了创建具体对象的过程，用函数来封装以特定接口创建对象的细节<br>优点：解决了创建相似对象的问题（1）<br>缺点：对象识别问题</p>
+</li>
+<li><p>构造函数模式<br>使用构造函数创建特定类型的对象;<br>优点：创建自定义的构造函数可以将它的实例标识为一种特定的类型<br>缺点：每个方法都要在实例上重新创建一遍（不同实例上的同名函数是不相等的，可以通过转移到构造函数外部解决，但是新问题在全局作用域定义的函数只能被某个对象想用，如果数量多，则没有封装型）<br>使用new操作符创建对象的新实例：<br>a.创建一个新对象；<br>b.将构造函数的作用域赋给新对象<br>c.执行构造函数中的代码（为这个新对象添加属性）<br>d.返回新对象</p>
+</li>
+<li><p>原型模式<br>每个函数都有一个<code>prototype(原型)</code>属性，是一个指向一个对象的指针。这个对象包含可以由特定类型的所有实例共享的属性和方法。即<code>prototype</code>就是通过调用构造函数而创建的那个对象实例的原型对象。<br>优点：让所有对象实例共享它所包含的属性和方法。<br>缺点：没有参数初始化，所有实例默认情况都将取得相同的属性值。最大问题是由于其共享的本性导致包含引用类型值的属性也被共享</p>
+</li>
+<li><p>组合使用构造函数模式和原型模式<br>创建自定义类型最常见的方式。构造函数模式用于定义实例属性，原型模式用于定义方法和共享的属性.<br>用来定义引用模式的一种默认模式。<br>优点：每个实例都有自己的实例属性的副本，同时又共享着对方法的引用，最大限度节省了内存，同时还支持向构造函数传递参数<br>缺点：同时存在独立的构造函数和原型</p>
+</li>
+<li><p>动态原型模式<br>把所有信息封装在构造函数中，通过在构造函数中初始化原型（仅在必要的情况下）<br>通过检查某个应该存在的方法是否有效，来决定是否需要初始化原型<br>优点：保持了同时使用构造函数和原型的优点，又解决了5中的问题<br>注意：使用动态原型模式时，不能使用对象字面量重写原型，否则会切断现有实例与新原型之间的联系</p>
+</li>
+<li><p>寄生构造函数模式 = 构造函数+工厂模式<br>创建一个函数，该函数的作用仅仅是封装创建对象的代码，然后再返回新创建的对象<br>应用场景：在特殊情况下用来为对象创建构造函数<br>注意：返回的对象与构造函数或者与构造函数的原型属性之间没有关系。不能依赖instanceof操作符来确定对象的类型，尽量不要使用这种模式</p>
+</li>
+<li><p>稳妥构造函数模式<br>没有公共属性，方法也不引用<code>this</code><br>a.新创建对象的实例方法不引用<code>this</code><br>b.不实用<code>new</code>操作符调用构造函数</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Tool/">Tool</a>
+	<a class="article-category-link" href="/categories/FE/">FE</a>
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/iOS/ios-she-ji-mo-shi-dan-li/" class="archive-article-date">
-  	<time datetime="2014-05-22T13:35:11.000Z" itemprop="datePublished">May 22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/iOS/ios-she-ji-mo-shi-dan-li/">iOS 设计模式-单例</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例/">单例</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/iOS/ios-gong-ju-ji/" class="archive-article-date">
-  	<time datetime="2014-05-18T13:01:28.000Z" itemprop="datePublished">May 18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/iOS/ios-gong-ju-ji/">iOS 工具集</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS逆向学习/">iOS逆向学习</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/iOS/mac-gong-ju-ji/" class="archive-article-date">
-  	<time datetime="2014-05-18T07:37:57.000Z" itemprop="datePublished">May 18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/iOS/mac-gong-ju-ji/">Mac 工具集</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS逆向学习/">iOS逆向学习</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Tool/maczhong-duan-terminalpei-zhi/" class="archive-article-date">
-  	<time datetime="2014-05-14T02:20:05.000Z" itemprop="datePublished">May 14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Tool/maczhong-duan-terminalpei-zhi/">Mac终端Terminal配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/终端/">终端</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Tool/">Tool</a>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
-  
-
-    
-
 </div>
       <footer id="footer">
   <div class="outer">
@@ -429,8 +393,8 @@
 		animate: true,
 		isHome: false,
 		isPost: false,
-		isArchive: true,
-		isTag: false,
+		isArchive: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}

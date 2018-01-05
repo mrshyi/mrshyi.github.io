@@ -122,7 +122,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Effective/" style="font-size: 17.5px;">Effective</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Objective-C/" style="font-size: 17.5px;">Objective-C</a> <a href="/tags/Octopress/" style="font-size: 15px;">Octopress</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS逆向学习/" style="font-size: 15px;">iOS逆向学习</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+						<a href="/tags/Effective/" style="font-size: 17.5px;">Effective</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Objective-C/" style="font-size: 17.5px;">Objective-C</a> <a href="/tags/Octopress/" style="font-size: 15px;">Octopress</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS逆向学习/" style="font-size: 15px;">iOS逆向学习</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -214,10 +214,85 @@
 
       <div class="body-wrap">
   
-    <article id="post-javascript面向对象的程序设计之创建对象" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript面向对象的程序设计之继承" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/uncategorized/javascript面向对象的程序设计之创建对象/" class="article-date">
+      <a href="/FE/JavaScript面向对象的程序设计之继承/" class="article-date">
+  	<time datetime="2018-01-05T05:52:30.000Z" itemprop="datePublished">Jan 5 2018</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/FE/JavaScript面向对象的程序设计之继承/">JavaScript面向对象的程序设计之继承</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>只支持实现继承，主要依靠原型链实现。</p>
+<ol>
+<li><p>原型链<br>原型链的构建是通过将一个类型的实例赋值给另一个构造函数的原型实现的<br>基本思想：<br>利用原型让一个引用类型继承另一个引用类型的属性和方法<br>问题：<br>a.包含引用类型值的原型属性，在通过原型实现继承时，实例属性会被继承共享<br>b.在创建子类型的实例时，不能向超类型的构造函数中传递参数（不影响所有对象实例的情况下）</p>
+</li>
+<li><p>借用构造函数/伪造对象/<br>解决原型中包含引用类型值所带来的问题<br>基本思想：<br>在子类型构造函数的内部调用超类型构造函数<br>优势：在子类型构造函数中向超类型构造函数传递参数<br>问题：方法都在构造函数中定义，不能复用。超类型的原型中的方法，对子类型不可见。</p>
+</li>
+<li><p>组合继承/伪经典继承<br>JavaScript中最常用的继承模式<br>将原型链和借用构造函数的技术组合到一起<br>基本思想：<br>使用原型链实现对原型属性和方法的继承，通过借用构造函数来实现对实例属性的继承<br>优点：实现了函数复用，又能够保证每个实例都有自己的属性<br>缺点：无论什么情况下，都会调用两次超类型构造函数（创建子类型原型时和在子类型构造函数内部）</p>
+</li>
+<li><p>原型式继承<br>借助原型基于已有对象创建新对象，不必因此创建自定义类型<br>只是想让一个对象与另一个对象保持类似的情况下，原型式继承完全胜任<br>注意：包含引用类型值的属性始终都会共享相应的值</p>
+</li>
+<li><p>寄生式继承<br>基本思想：<br>创建一个仅用于封装继承过程的函数，在内部以某种方式来增强对象，最后再返回对象。<br>注意：使用寄生式继承来为对象添加函数，会由于不能做到函数复用而降低效率</p>
+</li>
+<li><p>寄生组合式继承<br>开发人员普遍认为寄生组合式继承是引用类型最理想的继承范式<br>通过借用构造函数来继承属性，通过原型链的混成形式来继承方法<br>基本思想：<br>使用寄生式继承来继承超类型的原型，再将结果指定给子类型的原型。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/FE/">FE</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JavaScript面向对象的程序设计之创建对象" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/FE/JavaScript面向对象的程序设计之创建对象/" class="article-date">
   	<time datetime="2018-01-05T05:42:46.000Z" itemprop="datePublished">Jan 5 2018</time>
 </a>
     </div>
@@ -231,7 +306,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/uncategorized/javascript面向对象的程序设计之创建对象/">javascript面向对象的程序设计之创建对象</a>
+      <a class="article-title" href="/FE/JavaScript面向对象的程序设计之创建对象/">JavaScript面向对象的程序设计之创建对象</a>
     </h1>
   
 
@@ -240,8 +315,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#JS创建对象</p>
-<ol>
+        <ol>
 <li><p>Object构造函数或对象字面量<br>缺点：使用一个接口创建很多对象，会产生大量重复代码</p>
 </li>
 <li><p>工厂模式<br>抽象了创建具体对象的过程，用函数来封装以特定接口创建对象的细节<br>优点：解决了创建相似对象的问题（1）<br>缺点：对象识别问题</p>
@@ -266,7 +340,15 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/FE/">FE</a>
+	</div>
+
 
       
       <div class="clearfix"></div>
@@ -840,72 +922,6 @@
       
         <p class="article-more-link">
           <a  href="/iOS/Effective-Objective-C-2-0-读书笔记1/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS开发从0到1的思考-项目结构" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/iOS/iOS开发从0到1的思考-项目结构/" class="article-date">
-  	<time datetime="2015-11-25T05:22:02.000Z" itemprop="datePublished">Nov 25 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/iOS/iOS开发从0到1的思考-项目结构/">iOS开发从0到1的思考-项目结构</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><blockquote>
-<p>好的架构不是设计出来的，而是进化而来的！</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/iOS/iOS开发从0到1的思考-项目结构/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

@@ -4,17 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: iOS逆向学习 | mrshyi</title>
+  <title>JavaScript面向对象的程序设计之创建对象 | mrshyi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="且行且珍惜...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="mrshyi">
-<meta property="og:url" content="http://mrshyi.com/tags/iOS逆向学习/index.html">
+  <meta name="description" content="Object构造函数或对象字面量缺点：使用一个接口创建很多对象，会产生大量重复代码  工厂模式抽象了创建具体对象的过程，用函数来封装以特定接口创建对象的细节优点：解决了创建相似对象的问题（1）缺点：对象识别问题  构造函数模式使用构造函数创建特定类型的对象;优点：创建自定义的构造函数可以将它的实例标识为一种特定的类型缺点：每个方法都要在实例上重新创建一遍（不同实例上的同名函数是不相等的，可以通过">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript面向对象的程序设计之创建对象">
+<meta property="og:url" content="http://mrshyi.com/FE/JavaScript面向对象的程序设计之创建对象/index.html">
 <meta property="og:site_name" content="mrshyi">
-<meta property="og:description" content="且行且珍惜...">
+<meta property="og:description" content="Object构造函数或对象字面量缺点：使用一个接口创建很多对象，会产生大量重复代码  工厂模式抽象了创建具体对象的过程，用函数来封装以特定接口创建对象的细节优点：解决了创建相似对象的问题（1）缺点：对象识别问题  构造函数模式使用构造函数创建特定类型的对象;优点：创建自定义的构造函数可以将它的实例标识为一种特定的类型缺点：每个方法都要在实例上重新创建一遍（不同实例上的同名函数是不相等的，可以通过">
+<meta property="og:updated_time" content="2018-01-05T05:54:09.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mrshyi">
-<meta name="twitter:description" content="且行且珍惜...">
+<meta name="twitter:title" content="JavaScript面向对象的程序设计之创建对象">
+<meta name="twitter:description" content="Object构造函数或对象字面量缺点：使用一个接口创建很多对象，会产生大量重复代码  工厂模式抽象了创建具体对象的过程，用函数来封装以特定接口创建对象的细节优点：解决了创建相似对象的问题（1）缺点：对象识别问题  构造函数模式使用构造函数创建特定类型的对象;优点：创建自定义的构造函数可以将它的实例标识为一种特定的类型缺点：每个方法都要在实例上重新创建一遍（不同实例上的同名函数是不相等的，可以通过">
   
     <link rel="alternative" href="/atom.xml" title="mrshyi" type="application/atom+xml">
   
@@ -212,13 +214,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-ios-gong-ju-ji" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JavaScript面向对象的程序设计之创建对象" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/iOS/ios-gong-ju-ji/" class="article-date">
-  	<time datetime="2014-05-18T13:01:28.000Z" itemprop="datePublished">May 18 2014</time>
+      <a href="/FE/JavaScript面向对象的程序设计之创建对象/" class="article-date">
+  	<time datetime="2018-01-05T05:42:46.000Z" itemprop="datePublished">Jan 5 2018</time>
 </a>
     </div>
   
@@ -230,193 +230,96 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/iOS/ios-gong-ju-ji/">iOS 工具集</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript面向对象的程序设计之创建对象
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>目录：</p>
-<pre><code>1.SBSetting
-
-2.MobileSubstrate
-
-3.OpenSSH
-
-4.GDB
-
-5.Cycript
-
-6.Other
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS逆向学习/">iOS逆向学习</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/iOS/ios-gong-ju-ji/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-mac-gong-ju-ji" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/iOS/mac-gong-ju-ji/" class="article-date">
-  	<time datetime="2014-05-18T07:37:57.000Z" itemprop="datePublished">May 18 2014</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+      <div class="article-info article-info-post">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/iOS/mac-gong-ju-ji/">Mac 工具集</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>目录</p>
-<pre><code>1.class-dump
-2.Theos
-3.Reveal
-4.IDA
-5.Other
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS逆向学习/">iOS逆向学习</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 	</div>
 
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/iOS/mac-gong-ju-ji/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iosni-xiang-xue-xi-1-da-jian-yi-dong-shen-tou-ce-shi-ping-tai" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/iOS/iosni-xiang-xue-xi-1-da-jian-yi-dong-shen-tou-ce-shi-ping-tai/" class="article-date">
-  	<time datetime="2014-03-06T13:44:25.000Z" itemprop="datePublished">Mar 6 2014</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/iOS/iosni-xiang-xue-xi-1-da-jian-yi-dong-shen-tou-ce-shi-ping-tai/">iOS逆向学习1-搭建移动渗透测试平台</a>
-    </h1>
-  
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/FE/">FE</a>
+	</div>
 
-      </header>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>   本系列学习是基于对 <a href="http://esoftmobile.com/2014/02/14/ios-security/#jtss-tsina" target="_blank" rel="noopener">iOS安全系列汇总</a> 的学习与总结笔记。在此首先感谢各位作者！</p>
-<p><a href="http://wufawei.com/2013/11/ios-application-security-1/" target="_blank" rel="noopener">本文教材地址</a>(注：学习的话，请去教材那，有图有真相。赞一个 @)</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS逆向学习/">iOS逆向学习</a></li></ul>
-	</div>
+        <ol>
+<li><p>Object构造函数或对象字面量<br>缺点：使用一个接口创建很多对象，会产生大量重复代码</p>
+</li>
+<li><p>工厂模式<br>抽象了创建具体对象的过程，用函数来封装以特定接口创建对象的细节<br>优点：解决了创建相似对象的问题（1）<br>缺点：对象识别问题</p>
+</li>
+<li><p>构造函数模式<br>使用构造函数创建特定类型的对象;<br>优点：创建自定义的构造函数可以将它的实例标识为一种特定的类型<br>缺点：每个方法都要在实例上重新创建一遍（不同实例上的同名函数是不相等的，可以通过转移到构造函数外部解决，但是新问题在全局作用域定义的函数只能被某个对象想用，如果数量多，则没有封装型）<br>使用new操作符创建对象的新实例：<br>a.创建一个新对象；<br>b.将构造函数的作用域赋给新对象<br>c.执行构造函数中的代码（为这个新对象添加属性）<br>d.返回新对象</p>
+</li>
+<li><p>原型模式<br>每个函数都有一个<code>prototype(原型)</code>属性，是一个指向一个对象的指针。这个对象包含可以由特定类型的所有实例共享的属性和方法。即<code>prototype</code>就是通过调用构造函数而创建的那个对象实例的原型对象。<br>优点：让所有对象实例共享它所包含的属性和方法。<br>缺点：没有参数初始化，所有实例默认情况都将取得相同的属性值。最大问题是由于其共享的本性导致包含引用类型值的属性也被共享</p>
+</li>
+<li><p>组合使用构造函数模式和原型模式<br>创建自定义类型最常见的方式。构造函数模式用于定义实例属性，原型模式用于定义方法和共享的属性.<br>用来定义引用模式的一种默认模式。<br>优点：每个实例都有自己的实例属性的副本，同时又共享着对方法的引用，最大限度节省了内存，同时还支持向构造函数传递参数<br>缺点：同时存在独立的构造函数和原型</p>
+</li>
+<li><p>动态原型模式<br>把所有信息封装在构造函数中，通过在构造函数中初始化原型（仅在必要的情况下）<br>通过检查某个应该存在的方法是否有效，来决定是否需要初始化原型<br>优点：保持了同时使用构造函数和原型的优点，又解决了5中的问题<br>注意：使用动态原型模式时，不能使用对象字面量重写原型，否则会切断现有实例与新原型之间的联系</p>
+</li>
+<li><p>寄生构造函数模式 = 构造函数+工厂模式<br>创建一个函数，该函数的作用仅仅是封装创建对象的代码，然后再返回新创建的对象<br>应用场景：在特殊情况下用来为对象创建构造函数<br>注意：返回的对象与构造函数或者与构造函数的原型属性之间没有关系。不能依赖instanceof操作符来确定对象的类型，尽量不要使用这种模式</p>
+</li>
+<li><p>稳妥构造函数模式<br>没有公共属性，方法也不引用<code>this</code><br>a.新创建对象的实例方法不引用<code>this</code><br>b.不实用<code>new</code>操作符调用构造函数</p>
+</li>
+</ol>
 
       
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/iOS/iosni-xiang-xue-xi-1-da-jian-yi-dong-shen-tou-ce-shi-ping-tai/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
+    
+<nav id="article-nav">
+  
+    <a href="/FE/JavaScript面向对象的程序设计之继承/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript面向对象的程序设计之继承
+        
+      </div>
+    </a>
+  
+  
+    <a href="/uncategorized/2018你好，2017再见/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2018你好，2017再见</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
@@ -424,8 +327,23 @@
 
 
 
-  
-  
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mrshyi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -450,9 +368,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
