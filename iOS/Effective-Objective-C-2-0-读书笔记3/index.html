@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Effective Objective-C 2.0-读书笔记3 | mrshyi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第8条：理解“对象等同性”这一概念 等同性，按照”＝=”操作比较的是指针本身，而不是其所指的对象（指针不相等，但是对象可能相等） 使用NSObject协议声明的isEqual：方法判断两个对象的等同性 通常，类型不同的对象总是不相等。若比较的对象为同一个类，可以使用对象的特殊“等同性判定方法”。NSString的isEqualToString：方法，调用比isEqual：快 NSObject协议中">
+<meta name="keywords" content="iOS,Objective-C,Effective">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective Objective-C 2.0-读书笔记3">
+<meta property="og:url" content="http://mrshyi.com/iOS/Effective-Objective-C-2-0-读书笔记3/index.html">
+<meta property="og:site_name" content="mrshyi">
+<meta property="og:description" content="第8条：理解“对象等同性”这一概念 等同性，按照”＝=”操作比较的是指针本身，而不是其所指的对象（指针不相等，但是对象可能相等） 使用NSObject协议声明的isEqual：方法判断两个对象的等同性 通常，类型不同的对象总是不相等。若比较的对象为同一个类，可以使用对象的特殊“等同性判定方法”。NSString的isEqualToString：方法，调用比isEqual：快 NSObject协议中">
+<meta property="og:updated_time" content="2017-12-17T06:20:39.821Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective Objective-C 2.0-读书笔记3">
+<meta name="twitter:description" content="第8条：理解“对象等同性”这一概念 等同性，按照”＝=”操作比较的是指针本身，而不是其所指的对象（指针不相等，但是对象可能相等） 使用NSObject协议声明的isEqual：方法判断两个对象的等同性 通常，类型不同的对象总是不相等。若比较的对象为同一个类，可以使用对象的特殊“等同性判定方法”。NSString的isEqualToString：方法，调用比isEqual：快 NSObject协议中">
+  
+    <link rel="alternative" href="/atom.xml" title="mrshyi" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xonmx.com1.z0.glb.clouddn.com/img.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">mrshyi</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">修行自留地~</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Index</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+							<li><a href="/categories/iOS">iOS</a></li>
+				        
+							<li><a href="/categories/FE">FE</a></li>
+				        
+							<li><a href="/categories/Life">Life</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/mrshyi" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/Mrshyi" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective/" style="font-size: 17.5px;">Effective</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Objective-C/" style="font-size: 17.5px;">Objective-C</a> <a href="/tags/Octopress/" style="font-size: 15px;">Octopress</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS逆向学习/" style="font-size: 15px;">iOS逆向学习</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">mrshyi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xonmx.com1.z0.glb.clouddn.com/img.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">mrshyi</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">修行自留地~</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Index</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+					<li><a href="/categories/iOS">iOS</a></li>
+		        
+					<li><a href="/categories/FE">FE</a></li>
+		        
+					<li><a href="/categories/Life">Life</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/mrshyi" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/Mrshyi" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Effective-Objective-C-2-0-读书笔记3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/iOS/Effective-Objective-C-2-0-读书笔记3/" class="article-date">
+  	<time datetime="2016-03-11T15:15:51.000Z" itemprop="datePublished">Mar 11 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Effective Objective-C 2.0-读书笔记3
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Effective/">Effective</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/iOS/">iOS</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="第8条：理解“对象等同性”这一概念"><a href="#第8条：理解“对象等同性”这一概念" class="headerlink" title="第8条：理解“对象等同性”这一概念"></a>第8条：理解“对象等同性”这一概念</h3><ul>
+<li><code>等同性</code>，按照”＝=”操作比较的是指针本身，而不是其所指的对象（指针不相等，但是对象可能相等）</li>
+<li>使用NSObject协议声明的<code>isEqual：</code>方法判断两个对象的等同性</li>
+<li>通常，类型不同的对象总是不相等。若比较的对象为同一个类，可以使用对象的特殊“等同性判定方法”。NSString的<code>isEqualToString：</code>方法，调用比<code>isEqual：</code>快</li>
+<li>NSObject协议中两个判断等同性的关键方法。默认实现：当且仅当其“指针值”完全相等时，对象相等。<code>isEqual:</code>判断对象相等，则<code>hash</code>比返回相同hash值；反之未必。<ul>
+<li><ul>
+<li>(BOOL)isEqual:(id)object;</li>
+</ul>
+</li>
+<li><ul>
+<li>(NSUInteger)hash;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>相等判断：指针是否相等&gt;是否是同一个类&gt;属性是否相等</li>
+</ul>
+<a id="more"></a>
+<h4 id="特定类所具有的等同性判定方法"><a href="#特定类所具有的等同性判定方法" class="headerlink" title="特定类所具有的等同性判定方法"></a>特定类所具有的等同性判定方法</h4><ul>
+<li><code>NSString</code>的<code>isEqualToString:</code></li>
+<li><code>NSArray</code>的<code>isEqualToArray:</code></li>
+<li><code>NSDictionary</code>的<code>isEqualToDictionary</code></li>
+</ul>
+<p>自定义等同性判定方法，无须检测参数类型，大大提速。</p>
+<h4 id="等同性判定的执行深度"><a href="#等同性判定的执行深度" class="headerlink" title="等同性判定的执行深度"></a>等同性判定的执行深度</h4><p>需要决定根据整个对象判断等同性，还是其中几个字段来判断</p>
+<h4 id="容器中可变类的等同性"><a href="#容器中可变类的等同性" class="headerlink" title="容器中可变类的等同性"></a>容器中可变类的等同性</h4><p>容器中放入可变类对象后，不该修改其内容，否则可能造成未知后果</p>
+<hr>
+<p><strong>要点</strong></p>
+<ul>
+<li>若想检测对象的等同性，请提供<code>isEqual:</code> 与<code>hash</code>方法</li>
+<li>相同的对象必须具有相同的哈希码，但是相同哈希码的对象未必相同</li>
+<li>不要盲目逐个检测每条属性，该根据具体需求定制检测方案</li>
+<li>编写hash方法时，应该使用计算速度快而哈希码碰撞几率低的算法</li>
+</ul>
+<h3 id="第9条：以“类族模式”隐藏实现细节"><a href="#第9条：以“类族模式”隐藏实现细节" class="headerlink" title="第9条：以“类族模式”隐藏实现细节"></a>第9条：以“类族模式”隐藏实现细节</h3><p>隐藏“抽象基类”的实现细节</p>
+<ul>
+<li>判断实例所属类是否位于类族之中，使用<code>类型信息查询方法</code> <code>isKindOfClass:</code></li>
+<li>向类族中新增子类规则<ul>
+<li>子类应该继承自类族中的抽象基类</li>
+<li>子类应该定义自己的数据存储方式</li>
+<li>子类应当覆写超类文档中指明需要覆写的方法</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>要点</strong></p>
+<ul>
+<li>类族模式可以把实现细节隐藏在一套简单的公共接口后面</li>
+<li>系统框架中经常使用类族</li>
+<li>从类族的公共抽象基类中继承子类时要当心，如有开发文档，则应首先阅读</li>
+</ul>
+<h3 id="第10条：在既有类中使用关联对象存放自定义数据"><a href="#第10条：在既有类中使用关联对象存放自定义数据" class="headerlink" title="第10条：在既有类中使用关联对象存放自定义数据"></a>第10条：在既有类中使用关联对象存放自定义数据</h3><p>关联对象(Associated Object),给某对象关联其他对象，通过“键”区分。存储对象值的时候，指明“存储策略”，维护相应的“内存管理语义”</p>
+<ul>
+<li>管理关联对象的方法<ul>
+<li>void objc_setAssociatedObject(id object,void *key,id value,objc_AssociationPolicy policy) 以给定的键和策略为某对象设置关联对象值</li>
+<li>id objc_getAssociatedObject(id object,void *key) 根据给定的键从某对象中获取相应的关联对象的值</li>
+<li>void objc_removeAssociatedObjects(id object)移除指定对象的全部关联对象</li>
+</ul>
+</li>
+<li>设置关联对象值时，通常使用静态全局变量做键。两个键匹配到同一个值，二者指针必须完全相同</li>
+</ul>
+<hr>
+<p><strong>要点</strong></p>
+<ul>
+<li>通过“关联对象”机制把两个对象连起来</li>
+<li>定义关联对象时可指定内存管理语义，用以模仿定义属性时所采用的“拥有关系”与“非拥有关系”</li>
+<li>只有在其他做法不可执行时才应选用关联对象，因为通常会引入难于查找的Bug</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/iOS/Effective-Objective-C-2-0-读书笔记4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Effective Objective-C 2.0 读书笔记4
+        
+      </div>
+    </a>
+  
+  
+    <a href="/iOS/Effective-Objective-C-2-0-读书笔记2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Effective Objective-C 2.0-读书笔记2</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mrshyi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 mrshyi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000544183'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1000544183%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+ 
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Effective Objective-C 2.0-读书笔记2 | mrshyi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第2章 对象、消息、运行期 对象是面向对象语言编程的基本构造单元，通过其存储并传递数据； 消息传递是对象之间传递数据并执行任务的过程。">
+<meta name="keywords" content="iOS,Objective-C,Effective">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective Objective-C 2.0-读书笔记2">
+<meta property="og:url" content="http://mrshyi.com/iOS/Effective-Objective-C-2-0-读书笔记2/index.html">
+<meta property="og:site_name" content="mrshyi">
+<meta property="og:description" content="第2章 对象、消息、运行期 对象是面向对象语言编程的基本构造单元，通过其存储并传递数据； 消息传递是对象之间传递数据并执行任务的过程。">
+<meta property="og:updated_time" content="2017-12-17T06:20:39.820Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective Objective-C 2.0-读书笔记2">
+<meta name="twitter:description" content="第2章 对象、消息、运行期 对象是面向对象语言编程的基本构造单元，通过其存储并传递数据； 消息传递是对象之间传递数据并执行任务的过程。">
+  
+    <link rel="alternative" href="/atom.xml" title="mrshyi" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xonmx.com1.z0.glb.clouddn.com/img.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">mrshyi</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">修行自留地~</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Index</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+							<li><a href="/categories/iOS">iOS</a></li>
+				        
+							<li><a href="/categories/FE">FE</a></li>
+				        
+							<li><a href="/categories/Life">Life</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/mrshyi" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/Mrshyi" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective/" style="font-size: 17.5px;">Effective</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Objective-C/" style="font-size: 17.5px;">Objective-C</a> <a href="/tags/Octopress/" style="font-size: 15px;">Octopress</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS逆向学习/" style="font-size: 15px;">iOS逆向学习</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">mrshyi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xonmx.com1.z0.glb.clouddn.com/img.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">mrshyi</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">修行自留地~</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Index</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+					<li><a href="/categories/iOS">iOS</a></li>
+		        
+					<li><a href="/categories/FE">FE</a></li>
+		        
+					<li><a href="/categories/Life">Life</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/mrshyi" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/Mrshyi" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Effective-Objective-C-2-0-读书笔记2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/iOS/Effective-Objective-C-2-0-读书笔记2/" class="article-date">
+  	<time datetime="2016-03-10T14:11:19.000Z" itemprop="datePublished">Mar 10 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Effective Objective-C 2.0-读书笔记2
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Effective/">Effective</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/iOS/">iOS</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第2章-对象、消息、运行期"><a href="#第2章-对象、消息、运行期" class="headerlink" title="第2章 对象、消息、运行期"></a>第2章 对象、消息、运行期</h2><ul>
+<li><code>对象</code>是面向对象语言编程的基本构造单元，通过其存储并传递数据；</li>
+<li><code>消息传递</code>是对象之间传递数据并执行任务的过程。</li>
+</ul>
+<a id="more"></a>
+<h3 id="第6条：理解“属性”这一概念"><a href="#第6条：理解“属性”这一概念" class="headerlink" title="第6条：理解“属性”这一概念"></a>第6条：理解“属性”这一概念</h3><ul>
+<li><p><code>属性(Property)</code>，用于封装对象中的数据。Objective-C对象把其所需要的数据保存为各种实例变量。实例变量通过<code>存取方法（access method）</code>访问。<code>获取方法（getter）</code>读取变量值， <code>设置方法（setter）</code>写入变量值。</p>
+<pre><code>Q：修改类定义后必须重新编译，否则会出错（偏移量不一致）
+A: Objective-C 把实例变量当作一种存储偏移量所用的“特殊变量”，交由“类对象”保管。在运行期查看偏移量。
+A: 尽量不要直接访问实例变量，通过存取方法来做
+</code></pre></li>
+<li><code>属性</code>编译器自动生成存取方法，用以访问给定类型中具有给定名称的变量</li>
+<li><code>点语法</code>编译器自动转换为存取方法的调用，二者没有差别</li>
+<li>使用属性，编译器会1.自动编写访问属性所需的方法（自动合成）2.自动向类中添加适当类型的实例变量，以属性名前加下划线作为实例变量的名字 </li>
+<li>存取方法，除了自己实现，否则编译器会实现未自己实现的方法</li>
+<li><code>@dynamic</code>关键字告诉编译器，不要自动创建实现属性所用的实例变量，与存取方法</li>
+</ul>
+<h4 id="属性特质"><a href="#属性特质" class="headerlink" title="属性特质"></a>属性特质</h4><ul>
+<li><p>原子性</p>
+<p>   <code>nonatomic/atomic</code></p>
+</li>
+</ul>
+<ul>
+<li><p>读/写权限 </p>
+<ul>
+<li><code>readwrite</code>(读写)特质的属性拥有“获取方法”与“设置方法”，由@synthesize实现，自动生成两个方法</li>
+<li><code>readonly</code>(只读)特质的属性仅拥有“获取方法”，只有@synthesize实现，才会合成获取方法</li>
+</ul>
+</li>
+<li>内存管理语义</li>
+</ul>
+<pre><code>仅影响“设置方法”，保留值？只赋值给实例变量？根据此特质决定生成的方法代码
+</code></pre><ul>
+<li><code>assign</code> “设置方法”只会执行针对“纯量类型”（如：CGFLoat、NSInteger等）简单赋值</li>
+<li><code>strong</code> 定义”拥有关系”，为属性设置新值时，设置方法会先保留新值，并释放旧值，在设置上新值</li>
+<li><code>weak</code> 定义“非拥有关系”，设置新值，不保留新值，也不释放旧值。同assign类似，所指对象销毁时，会被清空</li>
+<li><code>unsafe_unretained</code>语义与assign相同，适用于“对象类型”，表达“非拥有关系”，目标对象被摧毁，属性值不自动清空</li>
+<li><code>copy</code> 有strong类似，不保留新值，将其拷贝。只要实现属性所用的对象是“可变的（mutable）”，应该设置新属性值时拷贝。</li>
+</ul>
+<ul>
+<li>方法名<ul>
+<li>getter=<name> 指定“获取方法”的方法名</name></li>
+<li>setter=<name> 指定“设置方法”的方法名</name></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>要点</strong></p>
+<ul>
+<li>可以用<code>@property</code>语法定义对象中所封装的数据</li>
+<li>通过“特质”指定存储数据所需的正确语义</li>
+<li>在设置属性所对应的实例变量时，一定要遵从该属性所声明的语义</li>
+<li>开发iOS时应该使用<code>nonatomic</code>属性，因为<code>atomic</code>严重影响性能</li>
+</ul>
+<h3 id="第7条：在对象内部尽量直接访问实例变量"><a href="#第7条：在对象内部尽量直接访问实例变量" class="headerlink" title="第7条：在对象内部尽量直接访问实例变量"></a>第7条：在对象内部尽量直接访问实例变量</h3><ul>
+<li>在对象之外总是应该通过属性访问实例变量</li>
+<li>在对象之内建议读取实例变量时采用直接访问的形式，设置实例变量时通过属性来做</li>
+<li>直接访问实例变量速度快（直接访问保存对象实例变量的内存）；不调用“设置方法”，绕过了“内存管理语义”；不会触发“KVO”通知；使用属性访问有助于排查与之相关的错误</li>
+<li>折中方案：写入实例变量使用“设置方法”来做，读取实例变量，直接访问。<ul>
+<li>初始化方法中设置属性值应该直接访问实例变量，以防被子类“覆写”设置方法</li>
+<li><code>惰性初始化</code>必须通过“获取方法”来访问属性，否则，实例变量永远不会初始化</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>要点</strong></p>
+<ul>
+<li>在对象内部读取数据时，应该直接通过实例变量来读，而写入数据时，应该通过属性来写</li>
+<li>在初始化方法及<code>dealloc</code>方法中，应该直接通过实例变量来读写数据</li>
+<li>使用惰性初始化技术配置数据，需要通过属性来读取数据</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/iOS/Effective-Objective-C-2-0-读书笔记3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Effective Objective-C 2.0-读书笔记3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/iOS/Effective-Objective-C-2-0-读书笔记1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Effective Objective-C 2.0-读书笔记1</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mrshyi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 mrshyi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000544183'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1000544183%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+ 
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Effective Objective-C 2.0-读书笔记1 | mrshyi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第一章熟悉Objective-C第1条：了解Objective-C语言起源 消息与函数的区别：使用消息结构的语言，其运行时所应执行的代码由运行环境来决定；使用函数调用的语言，由编译器决定  对象所占内存总是分配在堆空间(heap space),绝不会分配在栈(stack)上  分配在堆中的内存必须直接管理，分配在栈上用于保存变量的内存会在栈帧弹出时自动清理   要点：  Objective-C使用">
+<meta name="keywords" content="iOS,Objective-C,Effective">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective Objective-C 2.0-读书笔记1">
+<meta property="og:url" content="http://mrshyi.com/iOS/Effective-Objective-C-2-0-读书笔记1/index.html">
+<meta property="og:site_name" content="mrshyi">
+<meta property="og:description" content="第一章熟悉Objective-C第1条：了解Objective-C语言起源 消息与函数的区别：使用消息结构的语言，其运行时所应执行的代码由运行环境来决定；使用函数调用的语言，由编译器决定  对象所占内存总是分配在堆空间(heap space),绝不会分配在栈(stack)上  分配在堆中的内存必须直接管理，分配在栈上用于保存变量的内存会在栈帧弹出时自动清理   要点：  Objective-C使用">
+<meta property="og:updated_time" content="2017-12-17T06:20:39.820Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Effective Objective-C 2.0-读书笔记1">
+<meta name="twitter:description" content="第一章熟悉Objective-C第1条：了解Objective-C语言起源 消息与函数的区别：使用消息结构的语言，其运行时所应执行的代码由运行环境来决定；使用函数调用的语言，由编译器决定  对象所占内存总是分配在堆空间(heap space),绝不会分配在栈(stack)上  分配在堆中的内存必须直接管理，分配在栈上用于保存变量的内存会在栈帧弹出时自动清理   要点：  Objective-C使用">
+  
+    <link rel="alternative" href="/atom.xml" title="mrshyi" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xonmx.com1.z0.glb.clouddn.com/img.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">mrshyi</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">修行自留地~</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Index</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+							<li><a href="/categories/iOS">iOS</a></li>
+				        
+							<li><a href="/categories/FE">FE</a></li>
+				        
+							<li><a href="/categories/Life">Life</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/mrshyi" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/Mrshyi" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Effective/" style="font-size: 17.5px;">Effective</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Objective-C/" style="font-size: 17.5px;">Objective-C</a> <a href="/tags/Octopress/" style="font-size: 15px;">Octopress</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS逆向学习/" style="font-size: 15px;">iOS逆向学习</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">mrshyi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xonmx.com1.z0.glb.clouddn.com/img.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">mrshyi</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">修行自留地~</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Index</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+					<li><a href="/categories/iOS">iOS</a></li>
+		        
+					<li><a href="/categories/FE">FE</a></li>
+		        
+					<li><a href="/categories/Life">Life</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/mrshyi" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/Mrshyi" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Effective-Objective-C-2-0-读书笔记1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/iOS/Effective-Objective-C-2-0-读书笔记1/" class="article-date">
+  	<time datetime="2016-03-09T14:49:21.000Z" itemprop="datePublished">Mar 9 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Effective Objective-C 2.0-读书笔记1
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Effective/">Effective</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/iOS/">iOS</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一章熟悉Objective-C"><a href="#第一章熟悉Objective-C" class="headerlink" title="第一章熟悉Objective-C"></a>第一章熟悉Objective-C</h2><h3 id="第1条：了解Objective-C语言起源"><a href="#第1条：了解Objective-C语言起源" class="headerlink" title="第1条：了解Objective-C语言起源"></a>第1条：了解Objective-C语言起源</h3><ul>
+<li><p>消息与函数的<strong>区别</strong>：使用消息结构的语言，其运行时所应执行的代码由运行环境来决定；<br>使用函数调用的语言，由编译器决定</p>
+</li>
+<li><p>对象所占内存总是分配在<code>堆空间(heap space)</code>,绝不会分配在<code>栈(stack)</code>上</p>
+</li>
+<li>分配在堆中的内存必须直接管理，分配在栈上用于保存变量的内存会在栈帧弹出时自动清理</li>
+</ul>
+<hr>
+<p><strong>要点：</strong></p>
+<ul>
+<li>Objective-C使用动态绑定的消息结构，在运行时检查对象类型。接收到一条消息后，应执行何种代码，由运行期环境而非编译器决定。</li>
+</ul>
+<a id="more"></a>
+<h3 id="第2条：-在类的头文件中尽量少引入其他头文件"><a href="#第2条：-在类的头文件中尽量少引入其他头文件" class="headerlink" title="第2条： 在类的头文件中尽量少引入其他头文件"></a>第2条： 在类的头文件中尽量少引入其他头文件</h3><ul>
+<li>用Objective-C编写‘类’(class)的标准方式为：以类名做文件名，分别创建两个文件，头文件后缀用<code>.h</code>,实现文件后缀用<code>.m</code></li>
+<li>将引入头文件的时机尽量延后，只在确有需要时才引入，这样可以减少类的使用者所需引入的头文件数量</li>
+<li>@class xxx； <code>向前声明</code>(forward declaring):编译时不需要知道<code>xxx</code>类的全部细节，只需知道有一个叫 <code>xxx</code>的类名就好。</li>
+</ul>
+<hr>
+<p><strong>要点：</strong></p>
+<ul>
+<li>除非却有必要，否则不要引入头文件。一般来说，应在某个类的头文件中使用向前声明来提及别的类，并在实现文件中引入那些类的头文件。这样做可以尽量降低类之间的耦合(couping).</li>
+<li>无法使用向前声明时，比如要声明某个类遵循一个协议。这种情况下尽量把“该类遵循某协议”的这条声明移至<code>class-continuation分类</code>中。如果不行，就把协议单独放在一个头文件中，然后将其引入。</li>
+</ul>
+<h3 id="第3条：多用字面量语法，少用与之等价的方法"><a href="#第3条：多用字面量语法，少用与之等价的方法" class="headerlink" title="第3条：多用字面量语法，少用与之等价的方法"></a>第3条：多用字面量语法，少用与之等价的方法</h3><pre><code>字面量语法（literal syntax）可以缩短源代码长度，更为易读
+</code></pre><ul>
+<li><p>字面数值 <code>NSNumber</code> <code>@n</code> </p>
+<p>@1,@2.5f,@3.14159,@YES,@’a’</p>
+</li>
+<li><p>字面量数组<code>@[]</code> 若数组元素对象中有<code>nil</code>,则会抛出异常</p>
+</li>
+<li>字面量字典<code>@{}</code>字典中的对象和键必须都是Objective-C对象；值出现<code>nil</code>，则会抛出异常</li>
+<li>可变数组与字典：如果数组与对象是可变的（mutable），那么可以通过下标修改其中的元素值</li>
+<li>局限性：出来字符串外，所创建出来的对象必须属于<code>Foundation</code>框架</li>
+<li>使用字面量语法创建出来的字符串、数组、字典对象都是<strong>不可变</strong>的（immutalbe），若需要可变版本的对象，则需复制一份（mutableCopy）</li>
+</ul>
+<hr>
+<p><strong>要点：</strong></p>
+<ul>
+<li>应该使用字面量语法来创建字符串、数值、数组、字典。</li>
+<li>应该通过取下标操作访问数组下标或字典中键对应的元素。</li>
+<li>用字面量语法创建数组或字典时，若值中有<code>nil</code>，则会抛出异常。</li>
+</ul>
+<h3 id="第4条：多用类型常量，少用-define预处理指令"><a href="#第4条：多用类型常量，少用-define预处理指令" class="headerlink" title="第4条：多用类型常量，少用#define预处理指令"></a>第4条：多用类型常量，少用#define预处理指令</h3><pre><code>#define： 不含常量类型，多文件使用时被统一替换，容易遭人修改
+类型常量： 包含类型信息，命名信息明确，编译器确保值不变
+</code></pre><ul>
+<li>常用的命名法：若常量局限于某实现文件之内，则在前面加字母<code>k</code>;若常量在类之外可见，则通常以类名为前缀</li>
+<li>常量的定义位置：若不公开，定义在使用该常量的实现文件里。若公开，名称加前缀，放头文件</li>
+<li>常量定义从右向左解读</li>
+<li>变量声明：一定要同时用 <code>static</code> 与 <code>const</code>,如果试图修改由 <code>const</code>修饰符声明的变量，编译器报错；<code>static</code>修饰符意味着该变量仅在定义此变量的编译单元（每个类的实现文件）中可见，若不加<code>static</code>,则编译器默认创建<code>外部符号（external symbol)</code>,此时若其他单元出现同名变量，编译器抛出异常；同时static与const，编译器不在创建符号，像#define一样，替换变量为常值</li>
+<li>对外公开的常量：<code>extern</code> 此关键字告诉编译器，此常量在全局符号表中，编译器无需查看其定义，即允许代码使用。在头文件声明，在实现文件定义</li>
+<li>对外公开常量的位置：必须定义，且一次。放在与声明该常量的头文件相关的实现文件里。</li>
+</ul>
+<hr>
+<p><strong>要点：</strong></p>
+<ul>
+<li>不要用预处理指令定义常量。1.定义的常量不含类型信息，编译器只会在编译前执行查找替换。若重新定义，编译器无警告，导致应用中常量值不一致。</li>
+<li>在实现文件中使用static const定义 “只在编译单元中可见的常量”，不在全局符号表中，无需前缀</li>
+<li>在头文件中使用extern来声明全局常量，在相关实现文件中定义其值，名称用与之相关的类名做前缀</li>
+</ul>
+<h3 id="第5条：用枚举表示状态、选项、状态码"><a href="#第5条：用枚举表示状态、选项、状态码" class="headerlink" title="第5条：用枚举表示状态、选项、状态码"></a>第5条：用枚举表示状态、选项、状态码</h3><pre><code>枚举只是一种常量命名方式
+</code></pre><ul>
+<li>编译器会为枚举分配一个独有的编号，从0开始，每个枚举递增1.</li>
+<li>实现枚举所用的数据类型取决于编译器，不过其二进制位(bit)的个数必须能完全表示下枚举编号。</li>
+<li>选项的枚举值经常使用按位或<code>|</code>运算符组合</li>
+<li>两种宏定义方法：若枚举不需要相互组合使用<code>NS_ENUM</code>定义，需要按位或组合的枚举使用 <code>NS_OPTIONS</code>定义</li>
+</ul>
+<hr>
+<p><strong>要点：</strong></p>
+<ul>
+<li>应该用枚举来表示状态机的状态、传递给方法的选项以及状态码等值，给这些值起易懂的名字</li>
+<li>如果把传递给某个方法的选项表示为枚举类型，而多个选项又可同时使用，那么就将各项定义为2的幂，以便通过按位或将其组合起来</li>
+<li>使用NS_ENUM与NS_OPTIONS宏来定义枚举类型，并指明其底层数据类型。这样做可确保枚举是用开发者所选的底层数据类型实现出来的，而不是采用编译器所选的类型。</li>
+<li>在处理枚举类型的switch语句中不要实现default分支。这样，加入新枚举分支之后编译器会提示开发者(警告)：switch语句并未处理所有枚举</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/iOS/Effective-Objective-C-2-0-读书笔记2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Effective Objective-C 2.0-读书笔记2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/iOS/iOS开发从0到1的思考-项目结构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS开发从0到1的思考-项目结构</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mrshyi'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 mrshyi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000544183'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1000544183%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+ 
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+  </div>
+</body>
+</html>
