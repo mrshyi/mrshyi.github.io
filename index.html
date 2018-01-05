@@ -122,7 +122,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Effective/" style="font-size: 17.5px;">Effective</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Objective-C/" style="font-size: 17.5px;">Objective-C</a> <a href="/tags/Octopress/" style="font-size: 15px;">Octopress</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS逆向学习/" style="font-size: 15px;">iOS逆向学习</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+						<a href="/tags/Effective/" style="font-size: 17.5px;">Effective</a> <a href="/tags/Foundation/" style="font-size: 10px;">Foundation</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Objective-C/" style="font-size: 17.5px;">Objective-C</a> <a href="/tags/Octopress/" style="font-size: 15px;">Octopress</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS逆向学习/" style="font-size: 15px;">iOS逆向学习</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/终端/" style="font-size: 10px;">终端</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
 					</div>
 				</section>
 				
@@ -213,6 +213,87 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Windows下安装及更新NodeJS和NPM" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/FE/Windows下安装及更新NodeJS和NPM/" class="article-date">
+  	<time datetime="2018-01-05T06:08:17.000Z" itemprop="datePublished">Jan 5 2018</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/FE/Windows下安装及更新NodeJS和NPM/">Windows下安装及更新NodeJS和NPM</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><ol>
+<li><p>安装nodejs，直接通过官网的msi安装包安装即可；</p>
+</li>
+<li><p>升级nodejs，直接重新下载新版本，安装会覆盖更新。</p>
+</li>
+<li><p><code>node -v</code></p>
+</li>
+</ol>
+<p>// 注意：设置npm镜像，不要使用cnpm</p>
+<p>npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a> –global</p>
+<p>npm config set disturl <a href="https://npm.taobao.org/dist" target="_blank" rel="noopener">https://npm.taobao.org/dist</a> –global</p>
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>1.安装npm，默认包含在nodejs的安装包中，通过安装nodejs实现安装npm(可能版本不是最新)；</p>
+<p>2.更新npm，通过使用第三方包管理更新 <code>npm-windows-upgrade</code> <a href="https://github.com/felixrieseberg/npm-windows-upgrade\" target="_blank" rel="noopener">链接</a></p>
+<p>升级注意：only use this tool to upgrade npm, do not attempt to run npm install npm</p>
+<p><code>PowerShell as Administrator</code></p>
+<p>a. Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force</p>
+<p>b. npm install –global –production npm-windows-upgrade</p>
+<p>c. npm-windows-upgrade 或 npm-windows-upgrade –npm-version latest</p>
+<p>d. <code>npm -v</code></p>
+<h2 id="ncu-npm-check-updates"><a href="#ncu-npm-check-updates" class="headerlink" title="ncu - npm-check-updates"></a>ncu - npm-check-updates</h2><p>检查`package.json`依赖库的最新版本</p>
+<h2 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h2><p><a href="https://github.com/Pana/nrm" target="_blank" rel="noopener">nrm</a> can help you easy and fast switch between different npm registries, now include: npm, cnpm, taobao, nj(nodejitsu), rednpm.</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/FE/">FE</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-JavaScript面向对象的程序设计之继承" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -851,81 +932,6 @@
       
         <p class="article-more-link">
           <a  href="/iOS/Effective-Objective-C-2-0-读书笔记2/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Effective-Objective-C-2-0-读书笔记1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/iOS/Effective-Objective-C-2-0-读书笔记1/" class="article-date">
-  	<time datetime="2016-03-09T14:49:21.000Z" itemprop="datePublished">Mar 9 2016</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/iOS/Effective-Objective-C-2-0-读书笔记1/">Effective Objective-C 2.0-读书笔记1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第一章熟悉Objective-C"><a href="#第一章熟悉Objective-C" class="headerlink" title="第一章熟悉Objective-C"></a>第一章熟悉Objective-C</h2><h3 id="第1条：了解Objective-C语言起源"><a href="#第1条：了解Objective-C语言起源" class="headerlink" title="第1条：了解Objective-C语言起源"></a>第1条：了解Objective-C语言起源</h3><ul>
-<li><p>消息与函数的<strong>区别</strong>：使用消息结构的语言，其运行时所应执行的代码由运行环境来决定；<br>使用函数调用的语言，由编译器决定</p>
-</li>
-<li><p>对象所占内存总是分配在<code>堆空间(heap space)</code>,绝不会分配在<code>栈(stack)</code>上</p>
-</li>
-<li>分配在堆中的内存必须直接管理，分配在栈上用于保存变量的内存会在栈帧弹出时自动清理</li>
-</ul>
-<hr>
-<p><strong>要点：</strong></p>
-<ul>
-<li>Objective-C使用动态绑定的消息结构，在运行时检查对象类型。接收到一条消息后，应执行何种代码，由运行期环境而非编译器决定。</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Effective/">Effective</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/iOS/Effective-Objective-C-2-0-读书笔记1/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
