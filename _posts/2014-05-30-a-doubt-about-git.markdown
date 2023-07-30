@@ -27,10 +27,8 @@ tags: Git
  Q: dev 与 master 合并 merge 会因 bug分支出问题吗？
  
  验证：
-![ 图1](/images/img/git_sourceTree)
- 
-![ 图2](/images/img/git_log_graph)
- 
+
+
  结论：
  
  若没有conflick，则不会出问题，正如两条普通分支meger 一样
