@@ -1,3 +1,5 @@
+---
+layout: post
 title: Effective Objective-C 2.0 读书笔记5
 date: 2016-03-14 23:24:43
 comments: true

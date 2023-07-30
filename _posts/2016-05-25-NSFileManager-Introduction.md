@@ -1,3 +1,5 @@
+---
+layout: post
 title: NSFileManager Introduction
 date: 2016-05-25 20:54:55
 comments: true
