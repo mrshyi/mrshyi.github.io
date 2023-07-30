@@ -3,7 +3,7 @@ layout: post
 title: 为Chrirpy而迁移到Jekyll
 date: 2023-07-30 20:15 +0800
 categories: Tool
-tags: jekyll, chirpy
+tags: [jekyll, chirpy]
 ---
 ## 最前
 
