@@ -104,7 +104,7 @@ mardown 语法一窍不通。通过本文 熟悉了 几个格式：
 
 ②连续回车（return）>=2 才是换行。否则在一行。
 
-③ 超链接 使用 【链接名】（https://mrshyi.github # io）【】（）改成英文状态下。eg：[链接名](mrshyi.github.io)
+③ 超链接 使用 【链接名】（https://mrshyi.github # io）【】（）改成英文状态下。eg：[链接名](https://mrshyi.github.io)
 
 
 
